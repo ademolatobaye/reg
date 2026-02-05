@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 <link href="images/favicon.png" rel="icon">
-<title>Oxyy - Register</title>
+<title>Oxyy - Login and Register Form Html Template</title>
 <meta name="description" content="Login and Register Form Html Template">
 <meta name="author" content="harnishdesign.net">
 
@@ -48,7 +48,7 @@
             <div class="container">
               <div class="row g-0 mt-5">
                 <div class="col-11 col-md-10 col-lg-9 mx-auto">
-                  <h1 class="text-13 text-white fw-600 mb-4">To keep connected with largest shop in the world.</h1>
+                  <h1 class="text-13 text-white fw-600 mb-4">Don't worry, We are here help you to recover password.</h1>
                 </div>
               </div>
             </div>
@@ -57,85 +57,61 @@
       </div>
       <!-- Welcome Text End --> 
       
-      <!-- Login Form
+      <!-- Forgot Password Form
       ========================= -->
-
-
       <div class="col-md-6 col-lg-5 d-flex flex-column align-items-center">
         <div class="container pt-4">
           <div class="row g-0">
             <div class="col-11 col-md-10 col-lg-9 mx-auto">
-              <div class="logo"> <a class="fw-600 text-6 text-dark" href="index.html" title="Oxyy">REGISTER ACCOUNT</a> </div>
+              <div class="logo"> <a class="fw-600 text-6 text-dark" href="index.html" title="Oxyy">Oxyy</a> </div>
             </div>
           </div>
         </div>
         <div class="container my-auto py-5">
           <div class="row g-0">
             <div class="col-11 col-md-10 col-lg-9 mx-auto">
-              <h3 class="text-12 mb-4">Sign In</h3>
-
-              <form id="loginForm" method="post">
-
-              <?php
-              include("db_conn.php");
-              date_default_timezone_set("Africa/Lagos");
-              $OTP = rand(1000,9999);
-              error_reporting(E_ALL);
-              if(isset($_REQUEST["submit"])){
-                $email = trim(addslashes($_REQUEST["email"]));
-                $otp = $_REQUEST["otp"];
-
-                // CHECKING FOR DUPLICATE RECORD
-                $check = mysqli_query($conn, "SELECT * FROM otpver WHERE otp='$otp' OR email='$email'");
-                $checkrows = mysqli_num_rows($check);
-
-                if($checkrows > 0){
-                  echo "<script>alert('Member already exists in database.')</script>";
-                }
-                else{
-
-                $sql = "INSERT INTO otpver(email, otp, `status`) VALUES('$email', '$otp', 'Pending')";
-                mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                $num = mysqli_insert_id($conn);
-                if(mysqli_affected_rows($conn)!= 1){
-                  $message = "Error inserting record into database.";
-                }
-
-                echo "<script>alert('OTP sent to $email');
-                window.location.href= 'otp.php?email=$email'</script>";
-                
-              }
-                }
-
-              ?>
-
-
-                <label class="form-label fw-500" for="emailAddress">Email Address</label>
+              <h3 class="text-12 mb-4">Reset Password</h3>
+              <p class="mb-4 text-muted">Enter the email address or mobile number associated with your account.</p>
+              <form id="forgotForm" method="post">
+                <label class="form-label fw-500" for="emailAddress">Email or Mobile Number</label>
                 <div class="mb-3 icon-group icon-group-end">
-
-                  <input type="email" name="email" class="form-control bg-light border-light" id="emailAddress" required="" placeholder="Email or Username">
-                  <span class="icon-inside text-muted"><i class="fas fa-envelope"></i></span>
-				</div>
-
-                <div class="mb-3 icon-group icon-group-end">
-                  <input type="hidden" class="form-control form-control-lg bg-light border-light" id="loginPassword" required="" placeholder="Password" name= "otp" value="<?php echo "$OTP"; ?>">
-                  <span class="icon-inside text-muted"><i class="fas fa-lock"></i></span>
-				</div>
-               
+                  <input type="text" class="form-control bg-light border-light" id="emailAddress" required="" placeholder="Enter Email or Mobile Number">
+                  <span class="icon-inside text-muted"><i class="fas fa-envelope"></i></span> </div>
                 <div class="d-grid my-4">
-                  <button class="btn btn-dark btn-lg" type="submit" name= "submit">Sign In</button>
+                  <button class="btn btn-dark btn-lg" type="submit">Continue</button>
                 </div>
-                <p class="text-2 text-muted text-center">Not a member? <a href="register-18.html">Sign Up now</a></p>
+                <p class="text-2 text-muted text-center">Return to <a href="login-18.html">Sign In</a></p>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <!-- Login Form End --> 
+      <!-- Forgot Password Form End --> 
       
     </div>
   </div>
 </div>
+
+<!-- Styles Switcher -->
+<div id="styles-switcher" class="left">
+  <h5>Color Switcher</h5>
+  <hr>
+  <ul class="mb-0">
+    <li class="blue" data-bs-toggle="tooltip" title="Blue" data-path="#"></li>
+    <li class="indigo" data-bs-toggle="tooltip" title="Indigo" data-path="css/color-indigo.css"></li>
+    <li class="purple" data-bs-toggle="tooltip" title="Purple" data-path="css/color-purple.css"></li>
+    <li class="pink" data-bs-toggle="tooltip" title="Pink" data-path="css/color-pink.css"></li>
+    <li class="red" data-bs-toggle="tooltip" title="Red" data-path="css/color-red.css"></li>
+    <li class="orange" data-bs-toggle="tooltip" title="Orange" data-path="css/color-orange.css"></li>
+    <li class="yellow" data-bs-toggle="tooltip" title="Yellow" data-path="css/color-yellow.css"></li>
+    <li class="teal" data-bs-toggle="tooltip" title="Teal" data-path="css/color-teal.css"></li>
+    <li class="green" data-bs-toggle="tooltip" title="Green" data-path="css/color-green.css"></li>
+    <li class="cyan" data-bs-toggle="tooltip" title="Cyan" data-path="css/color-cyan.css"></li>
+    <li class="brown" data-bs-toggle="tooltip" title="Brown" data-path="css/color-brown.css"></li>
+  </ul>
+  <button class="btn switcher-toggle"><i class="fas fa-cog"></i></button>
+</div>
+<!-- Styles Switcher End --> 
 
 <!-- Script --> 
 <script src="vendor/jquery/jquery.min.js"></script> 
